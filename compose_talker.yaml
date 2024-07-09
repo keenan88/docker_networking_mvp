@@ -4,13 +4,8 @@ services:
   talker:
     image: osrf/ros:humble-desktop
     command: ros2 run demo_nodes_cpp talker
-    networks:
-      dummy_network:
-        ipv4_address: 172.21.0.5
 
 networks:
-  dummy_network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.21.0.0/16
+  default:
+    name: mvpvm
+    external: true

@@ -6,12 +6,10 @@ services:
     image: osrf/ros:humble-desktop
     command: ros2 run demo_nodes_cpp listener
     networks:
-      dummy_network:
+      mvpvm:
         ipv4_address: 172.21.0.4
 
-networks:
-  dummy_network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.21.0.0/16
+  networks:
+    default:
+      name: mvpvm
+      external: true
